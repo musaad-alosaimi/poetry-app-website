@@ -8,6 +8,7 @@ body {
   font-family: 'Cairo';
   font-size: 2em;
   direction: rtl;
+  line-height: 1.25em;
 }
 
 h3{
@@ -141,6 +142,10 @@ div.row{
 
 }
 
+#app-desc-section .column label{
+  font-size: 60%;
+}
+
 #app-desc-start {
 
 }
@@ -151,7 +156,6 @@ div.row{
 
 #app-desc-end {
   height: 100%;
-  padding-right: 40px;
 }
 
 #app-desc-end .download-link-btn {
@@ -256,6 +260,7 @@ div.row{
   flex-direction: row;
   justify-content: center;
   list-style-type: none;
+  padding: 20px;
 }
 
 #app-team-section ul li{
@@ -267,10 +272,12 @@ div.row{
 }
 
 #app-team-section ul img{
-    width: 90px;
-    height: 90px;
+    width: 120px;
+    height: 120px;
     border-radius: 200px;
     margin: 10px;
+    border: 1px solid #555;
+
 }
 
 #contact-us-section{

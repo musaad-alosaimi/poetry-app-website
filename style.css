@@ -152,10 +152,6 @@ div.row{
   margin-top: 15px;
 }
 
-#app-desc-start {
-
-}
-
 #app-desc-start p {
   font-size: 65%;
 }
@@ -191,7 +187,7 @@ div.row{
 #app-desc-end .row div.col{
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   font-size: 70%;
   margin-top: 20px;
@@ -315,12 +311,6 @@ div.row{
   border-top: 1px solid #000;
 }
 
-#footer-sections {
-  /* display: flex;
-  justify-content: center;
-  align-items: flex-end; */
-}
-
 #footer-sections a{
     color: #555;
 }
@@ -329,16 +319,11 @@ div.row{
     color: #999;
 }
 
-#footer-sections .footer-sec {
-}
-
 #footer-sections .footer-sec ul li {
   list-style-type: none;
   font-size: 20px;
 }
 
-#footer-sections #start-footer {
-}
 
 #footer-sections #start-footer ul{
   display: flex;

@@ -90,7 +90,6 @@
           </div>
 
           <div id="promotional-text" class="col-xs-12 col-lg-8">
-            <h2>منصة قافية</h2>
             <p id="intro-paragraph-1"></p>
           </div>
         </div>
@@ -258,9 +257,39 @@
       });
     })();
 
+    // Add scrolled class to navbar on scroll
+    window.addEventListener('scroll', function() {
+      const nav = document.getElementById('main-nav');
+      if (window.scrollY > 50) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+      }
+    });
+
+    // Smooth reveal animation for sections
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -100px 0px'
+    };
+
+    const observer = new IntersectionObserver(function(entries) {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.section').forEach(section => {
+      observer.observe(section);
+    });
+
 
     gsap.to("#intro-paragraph-1", {
-      duration: 7,
+      duration: 13,
+      delay: 0.5,
       text: `في منصتنا نعيد للشعر مكانته كفن حيّ يُعاش ويُقتنى، عبر ربط الشعراء بالمهتمين بفن الكلمة والقصيدة. نوفر مساحة متكاملة تمكّن الشاعر من عرض إبداعاته الشعرية بأسلوب يليق بقيمتها الفنية، وتمنح محبي الشعر فرصة الحصول على قصائد فريدة كُتبت خصيصًا لهم، تعبّر عن أفكارهم ومشاعرهم ومناسباتهم الخاصة.
 
 نؤمن بأن الشعر ليس مجرد كلمات تُكتب، بل فن يُجسّد الإحساس ويصوغ المعنى، تمامًا كما يفعل الرسام حين يحوّل الفكرة إلى لوحة نابضة بالحياة. فالقصيدة لوحة فنية يرسمها الشاعر بالحروف، يختار ألوانها من العاطفة، وتفاصيلها من الخيال، ليقدّم عملًا إبداعيًا يحمل بصمته الخاصة.
@@ -268,7 +297,7 @@
 ويُعد الشعر أحد أبرز الفنون الأصيلة في الخليج العربي، وجزءًا متجذرًا من هويتنا الثقافية. ومن هنا جاءت منصتنا لتكون جسرًا يربط هذا الإرث العريق بالعصر الحديث، ويمنح الشعراء فرصة عادلة لتقديم فنهم، ويتيح للمهتمين بالشعر اقتناء أعمال شعرية مميزة، تحمل قيمة فنية ومعنوية حقيقية.
 
 سواء كنت شاعرًا تبحث عن منصة تبرز موهبتك، أو محبًا للشعر ترغب في قصيدة تُكتب لك وحدك، فإن منصتنا هي المساحة التي يلتقي فيها الإبداع بالذائقة، والكلمة بصاحبها.`,
-      ease: "none",
+      ease: "power2.out",
     });
 
     // Register ScrollTrigger

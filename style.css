@@ -98,7 +98,7 @@ a {
 #wallpaper-section #screenshot img {
   height: auto;
   width: 45%;
-  border: 10px solid #333;
+  border: 0.9vh solid #333;
   border-top: 10px solid #111;
   border-bottom: 10px solid #111;
   border-radius: 25px;

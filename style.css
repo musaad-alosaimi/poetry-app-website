@@ -238,6 +238,10 @@ div#app-desc-section {
   padding: 80px 10%;
   --bs-gutter-x: none;
   background: linear-gradient(180deg, #fff 0%, #fafafa 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 div.row {
@@ -331,6 +335,9 @@ div.row {
   list-style-type: none;
   padding: 0px;
   gap: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #app-desc-end .row div.col {

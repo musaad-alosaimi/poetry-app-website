@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html>
+<html lang="ar" dir="rtl">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -39,291 +39,613 @@
 
   <body>
     <div id="container">
-      <div id="nav-wallpaper">
-        <nav class="navbar navbar-expand-lg navbar-light" id="main-nav">
-          <div id="app-icon-image">
-            <img src="./images/app-icon.png" />
-          </div>
+      <!-- Header / Nav -->
+      <header id="main-nav">
+        <a href="#hero" class="nav-logo" aria-label="قافية">
+          <img src="./images/landing/logo-nav.svg" alt="قافية" />
+        </a>
 
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-toggle="collapse"
-            data-target="#nav-menu"
-            aria-controls="nav-menu"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
+        <button
+          class="navbar-toggler"
+          type="button"
+          id="nav-toggler"
+          aria-controls="nav-menu"
+          aria-expanded="false"
+          aria-label="فتح القائمة"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
 
-          <div class="collapse navbar-collapse" id="nav-menu">
-            <ul class="navbar-nav mr-auto">
-              <li class="nav-item active">
-                <a class="nav-link" href="#app-desc-section"
-                  >نبذة</a
-                >
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#app-features-section"
-                  >لماذا منصة قافية ؟</a
-                >
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#app-team-section"
-                  >فريق قافية</a
-                >
-              </li>
-
-              <li class="nav-item">
-                <a class="nav-link" href="#contact-us-section"
-                  >تواصل معنا</a
-                >
-              </li>
-            </ul>
-          </div>
+        <nav id="nav-menu">
+          <ul class="nav-links">
+            <li><a href="#hero">الرئيسية</a></li>
+            <li><a href="#journey-section">كيف تعمل</a></li>
+            <li><a href="#testimonials-section">آراء المستخدمين</a></li>
+            <li><a href="#about-section">عن قــافـية</a></li>
+          </ul>
+          <a href="#cta-section" class="btn-pill btn-brand nav-cta">
+            <span class="icon-circle">
+              <svg width="13" height="16" viewBox="0 0 13 16" fill="none"><path d="M6.5 1v11M2 8l4.5 4.5L11 8" stroke="#936D49" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M1 15h11" stroke="#936D49" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </span>
+            حمّل التطبيق
+          </a>
         </nav>
+      </header>
 
-        <div id="wallpaper-section" class="row px-sm-1 p-md-5">
-          <div id="screenshot" class="col-xs-12 col-lg-4">
-            <img src="./images/main_app_screen.png" />
-          </div>
-
-          <div id="promotional-text" class="col-xs-12 col-lg-8">
-            <p id="intro-paragraph-1"></p>
-          </div>
+      <!-- Hero -->
+      <section id="hero">
+        <div class="hero-bg" aria-hidden="true">
+          <div class="hero-tiles"></div>
+          <div class="hero-glow glow-1"></div>
+          <div class="hero-glow glow-2"></div>
+          <div class="hero-glow glow-3"></div>
         </div>
-      </div>
 
-      <div id="app-desc-section" class="section row">
-        
-        <div id="app-desc-end" class="col-xs-12 pt-xs-5 col-md-8 px-md-5 pt-md-0">
-          <h3>مميزات التطبيق</h3>
-          <div class="row p-4">
-            <div class="column col col-xs-6 col-md-4">
-              <img src="./images/features/orders.png" />
-              <label>طلب كتابة قصيدة</label>
-            </div>
-            <div class="column col col-xs-6 col-md-4">
-              <img src="./images/features/edit.png" />
-              <label>تعديل قصيدة</label>
-            </div>
-            <div class="column col col-xs-6 col-md-4">
-              <img src="./images/features/poetry.png" />
-              <label>تقديم خدمة كتابة القصائد</label>
-            </div>
-            <div class="column col col-xs-6 col-md-4">
-              <img src="./images/features/microphone.png" />
-              <label>تقديم خدمة متعلقة بالقصائد</label>
-            </div>
-            <div class="column col col-xs-6 col-md-4">
-              <img src="./images/features/ai-technology.png"/>
-              <label>كتابة قصيدة باستخدام الذكاء الاصطناعي</label>
-            </div>
-          </div>
-        </div>
-        <!-- <a
-            class="download-link-btn"
-            href=""
-          >
-            Download Now
-          </a> -->
-      </div>
+        <div class="hero-content">
+          <span class="badge-pill">
+            <svg width="17" height="17" viewBox="0 0 17 17" fill="none"><path d="M8.5 1l2 5 5 2-5 2-2 5-2-5-5-2 5-2 2-5z" stroke="#936D49" stroke-width="1.3" stroke-linejoin="round"/></svg>
+            منصة الشعر العربي الحديثة
+          </span>
 
-      <div id="app-features-section" class="section">
-        <h3>ماللذي يميزنا عن غيرنا ؟</h3>
-        <div class="features">
-          <div class="row">
-            <div class="column col-xs-6 col-md-4">
-              <img src="./images/features/ux-design.png" />
-              <label>تصميم سهل وجذاب</label>
-              <p>حيث يمكن لأي شخص استخدامه بسهولة دون أي صعوبة</p>
-            </div>
-            <div class="column col-xs-6 col-md-4">
-              <img src="./images/features/writer.png" />
-              <label>مجموعة كبيرة من محترفي الشعر</label>
-              <p>
-                نقدم لكم مجموعة متنوعة من الشعراء يساعدونكم كنقطة انطلاق
-                لإبداعاتكم الخاصة
-              </p>
-            </div>
-            <div class="column col-xs-6 col-md-4">
-              <img src="./images/features/creative-writing.png" />
-              <label>تشجيع الإبداع</label>
-              <p>
-                المساعدة على تطيور مهاراتك الشعرية عن طريق طلب التواصل مع شعراء
-                آخرين.
-              </p>
-            </div>
-            <div class="column col-xs-6 col-md-4">
-              <img src="./images/features/ink.png" />
-              <label>مشاركة الشعر</label>
-              <p>إتاحة الفرصة لجميع الشعراء لإظهار مهاراتهم الشعرية</p>
-            </div>
-          </div>
-        </div>
-      </div>
+          <h1>نحول القصيدة من لحظة عابرة<br />إلي أثر ثقافي يُقتنى ويُهدى ويُعاش</h1>
 
-      <div id="app-team-section" class="section">
-        <h3>فريق قافية</h3>
-
-        <ul>
-          <li>
-            <img src="./images/photo/Abdulaziz-2.jpg" />
-            <label>عبدالعزيز المرشد</label>
-          </li>
-          <li>
-            <img src="./images/photo/Musaad.jpeg" />
-            <label>مساعد العصيمي</label>
-          </li>
-        </ul>
-      </div>
-
-      <div id="footer-container">
-        <div class="nav-sub-header">
-          <div id="app-icon-image">
-            <img src="./images/app-icon.png" />
+          <div class="hero-ctas">
+            <a href="#" class="btn-pill btn-brand">
+              <span class="icon-circle"><svg width="13" height="16" viewBox="0 0 13 16" fill="none"><path d="M6.5 1v11M2 8l4.5 4.5L11 8" stroke="#936D49" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              سجل كشاعر
+            </a>
+            <a href="#" class="btn-pill btn-brand">
+              <span class="icon-circle"><svg width="13" height="16" viewBox="0 0 13 16" fill="none"><path d="M6.5 1v11M2 8l4.5 4.5L11 8" stroke="#936D49" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              اطلب قصيدة
+            </a>
           </div>
         </div>
 
-        <div id="footer-sections">
-          <div class="row">
-          <div id="start-footer" class="footer-sec col-sm-12 col-md-6">
-            <ul>
-              <a href="#wallpaper-section">
-                <li>الرئيسة</li>
-              </a>
-              <a href="#app-desc-section">
-                <li>نبذة</li>
-              </a>
-              <a href="#app-features-section">
-                <li>لماذا منصة قافية ؟</li>
-              </a>
-              <a href="#contact-us-section">
-                <li>تواصل معنا</li>
-              </a>
-            </ul>
-          </div>
-          
-          <div id="end-footer" class="footer-sec col-sm-12 col-md-6">
-            <div id="contact-us-section">
-              <h2>تواصل معنا</h2>
-              <div id="contact-info">
-                <div id="contact-field">
-                  <label>البريد الإلكتدوني: </label>
-                  <label style="direction: ltr;">almarshadaziz@gmail.com</label>
-                </div>
-                <div id="contact-field">
-                  <label>رقم التواصل:</label>
-                  <label style="direction: ltr;">+966 55 777 4098</label>
-                </div>
-                <!-- <div id="contact-field">
-                  <label>العنوان:</label>
-                  <label style="direction: ltr;">Riyadh - King Fahd Road</label>
-                </div> -->
+        <div class="hero-mockup">
+          <img src="./images/landing/hero-mockup.webp" alt="تطبيق قافية" />
+        </div>
+      </section>
+
+      <!-- About -->
+      <section id="about-section" class="section">
+        <div class="about-inner">
+          <div class="about-text">
+            <h2>نقرّب المسافة بين الإلهام <span>وصاحبِه</span></h2>
+            <p>
+              قافية شركة سعودية تعمل على تحويل الشعر العربي والفنون المرتبطة به إلى
+              منتجات وتجارب ثقافية موثقة، تجمع بين أصالة الموروث واحترافية التشغيل
+              وحداثة المنصة الرقمية.
+            </p>
+
+            <div class="about-cards">
+              <div class="about-card">
+                <span class="icon-badge">
+                  <svg width="17" height="16" viewBox="0 0 17 16" fill="none"><path d="M2 8l4 4 9-9" stroke="#936D49" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+                <h3>تعريف قافيه</h3>
+                <p>قافية ليست تطبيقًا فقط، بل منظومة ثقافية وتشغيلية تجمع المبدعين والعملاء والوجهات في مساحة جديدة في الاقتصاد الثقافي.</p>
+              </div>
+              <div class="about-card">
+                <span class="icon-badge">
+                  <svg width="17" height="16" viewBox="0 0 17 16" fill="none"><rect x="1" y="3" width="15" height="10" rx="2" stroke="#936D49" stroke-width="1.6"/><circle cx="8.5" cy="8" r="2.5" stroke="#936D49" stroke-width="1.4"/></svg>
+                </span>
+                <h3>ما نمثله</h3>
+                <p>حيث يصبح الشعر والخط والصوت والترجمة والهدايا الثقافية جزءًا للتقديم والتوثيق والاقتناء، لا مجرد محتوى معروض.</p>
               </div>
             </div>
           </div>
 
+          <div class="about-logo">
+            <img src="./images/landing/logo-nav.svg" alt="قافية" />
           </div>
+        </div>
+      </section>
 
-          <div class="row">
-            <div id="center-footer" class="footer-sec col-12">
-              <p>جميع الحقوق محفوظة لمنصة قافية 2026 ©</p>
+      <!-- Work Standards -->
+      <section id="standards-section" class="section">
+        <div class="section-head">
+          <h2>معايير العمل</h2>
+          <p>تعتمد قافية على معايير تشغيلية تحفظ جودة التجربة دون تحويل الملف التعريفي إلى تفاصيل تجارية أو مالية.</p>
+        </div>
+
+        <div class="standards-inner">
+          <ul class="standards-list">
+            <li>
+              <h3>وضوح الرحلة</h3>
+              <p>يعرف العميل مراحل العمل، وما الذي سيحصل عليه، وكيف يتم التسليم.</p>
+            </li>
+            <li>
+              <h3>المبدع المناسب</h3>
+              <p>يتم ربط العمل بالمبدع الأقرب لطبيعة النص أو المناسبة أو نوع التجربة.</p>
+            </li>
+            <li>
+              <h3>جودة التنفيذ</h3>
+              <p>تراجع قافية عناصر النص والخط والصوت والترجمة والهدية قبل التسليم.</p>
+            </li>
+            <li>
+              <h3>احترام الهوية</h3>
+              <p>تقدم التجربة بما يليق بالموروث الثقافي وبخصوصية المكان واللغة.</p>
+            </li>
+            <li>
+              <h3>توثيق العمل</h3>
+              <p>يُحفظ الأثر بطريقة تساعد العميل على الاحتفاظ به أو مشاركته أو إهدائه.</p>
+            </li>
+          </ul>
+
+          <div class="standards-photo">
+            <img src="./images/landing/standards-photo.webp" alt="معايير العمل" loading="lazy" />
+          </div>
+        </div>
+      </section>
+
+      <!-- Work Fields -->
+      <section id="fields-section" class="section">
+        <div class="section-head">
+          <h2>مجالات عملنا</h2>
+          <p>تعمل قافية في مسارات ثقافية مترابطة، تُقدَّم هنا بوصفها أعمالاً تشكل هوية الشركة وحضورها، دون الدخول في أي تفاصيل تجارية.</p>
+        </div>
+
+        <div class="fields-grid">
+          <div class="field-card" style="background-image:url('./images/landing/feature-poetry.webp')">
+            <div class="field-overlay"></div>
+            <h3>الشعر</h3>
+            <p>صياغة قصائد مخصصة تعبر عن الأشخاص والمناسبات والوجهات والقصص الإنسانية</p>
+          </div>
+          <div class="field-card" style="background-image:url('./images/landing/feature-calligraphy.webp')">
+            <div class="field-overlay"></div>
+            <h3>الخط العربي</h3>
+            <p>تحويل النصوص المختارة إلى أعمال خطية أو مخطوطات قابلة للاقتناء والإهداء</p>
+          </div>
+          <div class="field-card" style="background-image:url('./images/landing/feature-audio.webp')">
+            <div class="field-overlay"></div>
+            <h3>الأداء الصوتي</h3>
+            <p>تسجيل القصيدة أو النص بصوت مؤدٍ يمنح الأثر بعدًا سمعيًا قابلًا للحفظ والمشاركة</p>
+          </div>
+          <div class="field-card" style="background-image:url('./images/landing/feature-translation.webp')">
+            <div class="field-overlay"></div>
+            <h3>الترجمة</h3>
+            <p>نقل المعنى الثقافي للزوار غير العرب بطريقة تحفظ روح النص وسياقه</p>
+          </div>
+          <div class="field-card" style="background-image:url('./images/landing/feature-live-experiences.webp')">
+            <div class="field-overlay"></div>
+            <h3>التجارب الحية</h3>
+            <p>تنظيم حضور المبدعين في المواقع والفعاليات ليصبح التفاعل جزءًا من التجربة</p>
+          </div>
+          <div class="field-card" style="background-image:url('./images/landing/feature-gifts.webp')">
+            <div class="field-overlay"></div>
+            <h3>الهدايا الثقافية</h3>
+            <p>منتج ثقافي أنيق يناسب الأفراد والضيافة والوجهات لتجميع العمل الإبداعي</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Partners -->
+      <section id="partners-section" class="section">
+        <div class="section-head">
+          <h2>شركاؤنا</h2>
+          <p>تتعاون قافية مع الجهات والوجهات التي ترى في الثقافة تجربة حية وليست مجرد محتوى معروض.</p>
+        </div>
+
+        <div class="partners-grid">
+          <div class="partner-card">
+            <h3>الواجهات التراثية</h3>
+            <p>لتفعيل تجارب مباشرة تربط الزائر بقصة المكان</p>
+          </div>
+          <div class="partner-card">
+            <h3>الجهات الثاقفية</h3>
+            <p>لتطوير المبادرات التي تحفظ الفنون الحية وتوسع حضورها</p>
+          </div>
+          <div class="partner-card">
+            <h3>الفنادق والضيافة</h3>
+            <p>لتقديم هدايا وتجارب ذات هوية للضيوف والوفود</p>
+          </div>
+          <div class="partner-card">
+            <h3>المتاحف والمراكز</h3>
+            <p>لتحويل المعرفة والزيارة إلى أثر شخصي قابل للاقتناء</p>
+          </div>
+          <div class="partner-card">
+            <h3>منظمو الفعاليات</h3>
+            <p>لإضافة تجربة ثقافية مباشرة داخل المواسم والمناسبات</p>
+          </div>
+          <div class="partner-card">
+            <h3>المؤسسات والشركات</h3>
+            <p>لتطوير هدايا مؤسسية تعبر عن الهوية والامتنان والاحتفاء</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Creators Ecosystem -->
+      <section id="creators-section" class="section">
+        <div class="section-head">
+          <h2>منظومة المبدعين</h2>
+          <p>ضمن إطار منظم يحفظ جودة التجربة ووضوح الأدوار، تقوم قافية على شبكة متعددة من المبدعين، يعمل كل منهم في جزء من رحلة الأثر الثقافي.</p>
+        </div>
+
+        <div class="creators-grid">
+          <div class="creator-card">
+            <h3>الشعراء</h3>
+            <p>صياغة القصيدة وبناء النص من قصة العميل أو المكان.</p>
+            <span class="dots" aria-hidden="true"></span>
+          </div>
+          <div class="creator-card">
+            <h3>الخطاطون والفنانون</h3>
+            <p>تحويل النص إلى عمل بصري يحمل روح اللغة وجماليات الحرفة.</p>
+            <span class="dots" aria-hidden="true"></span>
+          </div>
+          <div class="creator-card">
+            <h3>فريق التشغيل</h3>
+            <p>تنسيق الرحلة، متابعة الجودة، وضمان وضوح التجربة للعميل والشريك.</p>
+            <span class="dots" aria-hidden="true"></span>
+          </div>
+          <div class="creator-card">
+            <h3>المترجمون</h3>
+            <p>إيصال المعنى للزوار غير العرب دون فقدان السياق الثقافي.</p>
+            <span class="dots" aria-hidden="true"></span>
+          </div>
+          <div class="creator-card">
+            <h3>صناع الهدايا الثقافية</h3>
+            <p>تحويل العمل إلى منتج مادي أنيق وقابل للإهداء.</p>
+            <span class="dots" aria-hidden="true"></span>
+          </div>
+          <div class="creator-card">
+            <h3>المؤدون الصوتيون</h3>
+            <p>منح النص حياة مسموعة وتجربة يمكن حفظها ومشاركتها.</p>
+            <span class="dots" aria-hidden="true"></span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Cultural Journey -->
+      <section id="journey-section" class="section">
+        <div class="section-head">
+          <h2>رحلة الأثر الثقافي</h2>
+          <p>تقدم قافية رحلة ثقافية بسيطة وواضحة، تجعل كل مرحلة من مراحل العمل مفهومة للعميل وقابلة للإدارة من فريق التشغيل.</p>
+        </div>
+
+        <ol class="journey-timeline">
+          <li>
+            <span class="journey-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 1a4 4 0 014 4v3a4 4 0 01-8 0V5a4 4 0 014-4z" stroke="#fff" stroke-width="1.4"/><path d="M4 9a5 5 0 0010 0M9 14v3M6.5 17h5" stroke="#fff" stroke-width="1.4" stroke-linecap="round"/></svg></span>
+            <div class="journey-card">
+              <h3>الاستماع</h3>
+              <p>تبدأ الرحلة بفهم القصة أو المناسبة أو السياق الذي سيولد منه العمل.</p>
+            </div>
+          </li>
+          <li>
+            <span class="journey-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 15l2-6 8-8 4 4-8 8-6 2z" stroke="#fff" stroke-width="1.4" stroke-linejoin="round"/></svg></span>
+            <div class="journey-card">
+              <h3>الإبداع</h3>
+              <p>يصوغ الشاعر النص بما يناسب الشخص أو المكان أو المناسبة.</p>
+            </div>
+          </li>
+          <li>
+            <span class="journey-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M2 14L14 2M9 2h5v5M2 9l7 7" stroke="#fff" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <div class="journey-card">
+              <h3>التشكيل</h3>
+              <p>يتحول النص إلى خط أو صوت أو ترجمة أو هدية بحسب طبيعة الطلب.</p>
+            </div>
+          </li>
+          <li>
+            <span class="journey-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="3" y="2" width="12" height="14" rx="1.5" stroke="#fff" stroke-width="1.4"/><path d="M6 6h6M6 9h6M6 12h3" stroke="#fff" stroke-width="1.2" stroke-linecap="round"/></svg></span>
+            <div class="journey-card">
+              <h3>التوثيق</h3>
+              <p>يحفظ الأثر بصورة رقمية أو مادية ليصبح قابلًا للرجوع والمشاركة.</p>
+            </div>
+          </li>
+          <li>
+            <span class="journey-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 1L2 4v5c0 4.5 3 7 7 8 4-1 7-3.5 7-8V4L9 1z" stroke="#fff" stroke-width="1.4" stroke-linejoin="round"/><path d="M6.5 9l2 2 3.5-4" stroke="#fff" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <div class="journey-card">
+              <h3>التسليم</h3>
+              <p>تُسلَّم التجربة كأثر ثقافي مكتمل، يحمل النص والمعنى والذكرى.</p>
+            </div>
+          </li>
+        </ol>
+      </section>
+
+      <!-- Vision & Mission -->
+      <section id="vision-section" class="section">
+        <div class="section-head">
+          <h2>الرؤية والرساله</h2>
+          <p>نحوّل الإبداع الشعري والفني إلى تجارب أصيلة، تجمع بين حضور المبدع وأثر الثقافة.</p>
+        </div>
+
+        <div class="vision-cards">
+          <div class="vision-card">
+            <h3>الرؤية</h3>
+            <p>أن تكون قافية مرجعًا عربيًا في تحويل الشعر والفنون المرتبطة به إلى أثر ثقافي حي، يجمع بين حضور المبدع في الميدان، ووضوح التجربة في المنصة الرقمية، وعمق المعنى في الذاكرة.</p>
+          </div>
+          <div class="vision-card">
+            <h3>الرسالة</h3>
+            <p>تمكين الشعراء والخطاطين والمترجمين والمؤدين الصوتيين وصناع الهدايا الثقافية من تقديم أعمالهم ضمن تجربة احترافية، تجمع الحضور الميداني بالمنصة الرقمية، وتقدم للعميل أثرًا أصيلًا وواضح الرحلة.</p>
+          </div>
+        </div>
+
+        <div class="vision-strip">
+          <div>
+            <h4>في المنصة</h4>
+            <p>ننظم الطلب والمتابعة والتوثيق والتسليم عبر تجربة رقمية واضحة</p>
+          </div>
+          <div>
+            <h4>في الميدان</h4>
+            <p>نحضر في المواقع والفاعليات حيث تكون القصة جزءًا من المكان</p>
+          </div>
+          <div>
+            <h4>في الثقافة</h4>
+            <p>نحافظ على حضور الشعر والفنون الحية في التجارب المعاصرة</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section id="cta-section">
+        <div class="cta-inner">
+          <div class="cta-text">
+            <span class="badge-pill badge-pill-light">
+              <svg width="17" height="17" viewBox="0 0 17 17" fill="none"><path d="M8.5 1l2 5 5 2-5 2-2 5-2-5-5-2 5-2 2-5z" stroke="#936D49" stroke-width="1.3" stroke-linejoin="round"/></svg>
+              ماذا تنتظر؟
+            </span>
+            <h2>دع قصيدتك تجد صوتها المناسب</h2>
+            <p>انضم إلى مجتمع يقدّر الكلمة ويمنح الشعر مكانه الذي يليق به.</p>
+
+            <div class="store-buttons">
+              <a href="#" class="store-btn">
+                <svg width="22" height="22" viewBox="0 0 22 22" fill="#fff"><path d="M15.4 11.8c0-2.1 1.7-3.1 1.8-3.2-1-1.4-2.5-1.6-3-1.6-1.3-.1-2.5.8-3.1.8-.6 0-1.6-.7-2.7-.7-1.4 0-2.7.8-3.4 2-1.4 2.5-.4 6.3 1 8.3.7 1 1.5 2.1 2.6 2 1-.1 1.4-.7 2.7-.7s1.6.7 2.7.6c1.1 0 1.8-1 2.5-2 .8-1.1 1.1-2.2 1.1-2.3-.1 0-2.2-.8-2.2-3.2zM13.4 5.4c.6-.7 1-1.7.9-2.6-.9 0-1.9.6-2.5 1.3-.5.6-1 1.6-.9 2.5.9.1 1.9-.5 2.5-1.2z"/></svg>
+                <span><small>تنزيل من</small>App Store</span>
+              </a>
+              <a href="#" class="store-btn">
+                <svg width="22" height="22" viewBox="0 0 22 22" fill="#fff"><path d="M4 3l10 8-10 8V3z" fill="#fff"/><path d="M4 3l13 3.5-3 4.5-10-8z" opacity=".85"/><path d="M4 19l13-3.5-3-4.5-10 8z" opacity=".85"/></svg>
+                <span><small>احصل عليه من</small>Google Play</span>
+              </a>
             </div>
           </div>
 
+          <div class="cta-mockup">
+            <img src="./images/landing/cta-mockup.webp" alt="تطبيق قافية" loading="lazy" />
+          </div>
         </div>
-      </div>
+      </section>
+
+      <!-- Testimonials -->
+      <section id="testimonials-section" class="section">
+        <div class="section-head">
+          <h2>قالوا عن قافية</h2>
+          <p>تعرّف على تجارب وآراء المستخدمين الذين اختاروا قافية، واكتشف كيف ساعدتهم المنصة في تحويل أفكارهم ومشاعرهم إلى قصائد تُكتب خصيصًا لهم.</p>
+        </div>
+
+        <div class="testimonials-swiper swiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <div class="testimonial-card">
+                <span class="quote-mark">”</span>
+                <p>أهداني أخي قصيدة من قافية في يوم تخرجي، وما زالت أجمل هدية وصلتني.</p>
+                <div class="testimonial-person">
+                  <span class="avatar">ل</span>
+                  <div><strong>لينا العتيبي</strong><small>عميلة قافية</small></div>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="testimonial-card">
+                <span class="quote-mark">”</span>
+                <p>المنصة رتبت التواصل بشكل أنيق، وصارت قصائدي تصل لمن يقدّرونها فعلًا.</p>
+                <div class="testimonial-person">
+                  <span class="avatar">ع</span>
+                  <div><strong>عبدالعزيز السالم</strong><small>شاعر على قافية</small></div>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="testimonial-card">
+                <span class="quote-mark">”</span>
+                <p>تفاصيل الطلب أعطتني حرية أشرح شعوري، والنتيجة كانت أقرب مما توقعت.</p>
+                <div class="testimonial-person">
+                  <span class="avatar">ر</span>
+                  <div><strong>رهف عبدالله</strong><small>عميلة قافية</small></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonials-controls">
+          <button class="swiper-prev" aria-label="السابق">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M11 4l-5 5 5 5" stroke="#936D49" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="swiper-progress"><span></span></div>
+          <button class="swiper-next" aria-label="التالي">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M7 4l5 5-5 5" stroke="#936D49" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section id="faq-section" class="section">
+        <div class="section-head">
+          <h2>كل ما يدور ببالك</h2>
+          <p>اعثر على إجابات لأكثر الأسئلة شيوعًا حول منصة قافية، بدءًا من إنشاء الحساب وطلب القصائد، وحتى آلية التواصل، والدفع، وتسليم الأعمال.</p>
+        </div>
+
+        <div class="faq-grid">
+          <details class="faq-item" open>
+            <summary>
+              <span class="faq-toggle">+</span>
+              ما هي منصة قافية؟
+            </summary>
+            <p>قافية مساحة عربية تجمع بين الشعراء المحترفين ومحبي القصيدة، لطلب نصوص مخصصة أو الاطلاع على أعمال جاهزة.</p>
+          </details>
+          <details class="faq-item">
+            <summary>
+              <span class="faq-toggle">+</span>
+              كيف أطلب قصيدة مخصصة؟
+            </summary>
+            <p>اختر الشاعر، اشرح مناسبتك والروح التي تبحث عنها، ثم تابع الطلب حتى تستلم قصيدتك.</p>
+          </details>
+          <details class="faq-item">
+            <summary>
+              <span class="faq-toggle">+</span>
+              هل يمكنني التسجيل كشاعر؟
+            </summary>
+            <p>بالتأكيد. أنشئ ملفك، اعرض نماذجك وخدماتك، وابدأ باستقبال طلبات مناسبة لأسلوبك.</p>
+          </details>
+          <details class="faq-item">
+            <summary>
+              <span class="faq-toggle">+</span>
+              كيف تضمن قافية جودة التجربة؟
+            </summary>
+            <p>نوفر ملفات موثقة وتقييمًا واضحًا وتواصلًا منظمًا بين الطرفين في كل خطوة.</p>
+          </details>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer id="footer-container">
+        <div class="footer-logo">
+          <img src="./images/landing/logo-footer.svg" alt="قافية" />
+        </div>
+
+        <div id="footer-sections">
+          <div class="footer-columns">
+            <div class="footer-col footer-contact">
+              <h4>تواصل معنا</h4>
+              <a href="mailto:almarshadaziz@gmail.com" class="footer-contact-row">
+                <span>almarshadaziz@gmail.com</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="#6A4E34"><path d="M2 5a2 2 0 012-2h16a2 2 0 012 2v14a2 2 0 01-2 2H4a2 2 0 01-2-2V5zm2 0l8 6 8-6" fill="none" stroke="#6A4E34" stroke-width="1.6"/></svg>
+              </a>
+              <a href="tel:+966557774098" class="footer-contact-row" dir="ltr">
+                <span>+966 55 777 4098</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6A4E34" stroke-width="1.6"><path d="M4 4c0 9 7 16 16 16l3-4-6-3-2 2c-3-1.5-5-3.5-6-6l2-2-3-6-4 3z"/></svg>
+              </a>
+            </div>
+
+            <div class="footer-col">
+              <h4>الشركة</h4>
+              <a href="#about-section">عن قافية</a>
+              <a href="#faq-section">الأسئلة الشائعة</a>
+              <a href="#">سياسة الخصوصية</a>
+            </div>
+
+            <div class="footer-col">
+              <h4>روابط سريعة</h4>
+              <a href="#journey-section">كيف تعمل</a>
+              <a href="#cta-section">تواصل معنا</a>
+              <a href="#creators-section">الشعراء</a>
+            </div>
+
+            <div class="footer-col footer-tagline-col">
+              <h4>حين تعجز الكلمات...<br />تبدأ قافية.</h4>
+              <div class="social-icons">
+                <a href="#" aria-label="X"><img src="./images/landing/social-x.svg" alt="" /></a>
+                <a href="#" aria-label="Snapchat"><img src="./images/landing/social-snapchat.svg" alt="" /></a>
+                <a href="#" aria-label="LinkedIn"><img src="./images/landing/social-linkedin.svg" alt="" /></a>
+              </div>
+            </div>
+          </div>
+
+          <div id="center-footer">
+            <p>جميع الحقوق محفوظة لمنصة قافية 2026 ©</p>
+            <p>@قافية 2026</p>
+          </div>
+        </div>
+      </footer>
     </div>
   </body>
 
   <script src="./resources/js/jquery.min.js"></script>
   <script src="./resources/js/bootstrap.min.js"></script>
-  <script src="./resources/js/gsap.min.js"></script>
-  <script src="./resources/js/TextPlugin.min.js"></script>
-  <script src="./resources/js/ScrollTrigger.min.js"></script>
   <script src="./resources/js/swiper-bundle.min.js"></script>
 
   <script>
-
-    (function toggleNavMenuOnMobileScreenSize(){
-      const navbarToggler = document.querySelector(".navbar-toggler");
+    // Mobile nav toggle
+    (function toggleNavMenuOnMobileScreenSize() {
+      const navbarToggler = document.getElementById("nav-toggler");
       const navMenu = document.getElementById("nav-menu");
       navbarToggler.addEventListener("click", function (event) {
         event.stopPropagation();
-        // Toggle class manually if needed
         navMenu.classList.toggle("show");
+        navbarToggler.classList.toggle("open");
+      });
+      navMenu.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+          navMenu.classList.remove("show");
+          navbarToggler.classList.remove("open");
+        });
       });
     })();
 
     // Add scrolled class to navbar on scroll
-    window.addEventListener('scroll', function() {
-      const nav = document.getElementById('main-nav');
-      if (window.scrollY > 50) {
-        nav.classList.add('scrolled');
+    window.addEventListener("scroll", function () {
+      const nav = document.getElementById("main-nav");
+      if (window.scrollY > 40) {
+        nav.classList.add("scrolled");
       } else {
-        nav.classList.remove('scrolled');
+        nav.classList.remove("scrolled");
       }
     });
 
     // Smooth reveal animation for sections
     const observerOptions = {
       threshold: 0.1,
-      rootMargin: '0px 0px -100px 0px'
+      rootMargin: "0px 0px -100px 0px",
     };
 
-    const observer = new IntersectionObserver(function(entries) {
-      entries.forEach(entry => {
+    const observer = new IntersectionObserver(function (entries) {
+      entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('revealed');
+          entry.target.classList.add("revealed");
           observer.unobserve(entry.target);
         }
       });
     }, observerOptions);
 
-    document.querySelectorAll('.section').forEach(section => {
+    document.querySelectorAll(".section").forEach((section) => {
       observer.observe(section);
     });
 
-
-    gsap.to("#intro-paragraph-1", {
-      duration: 13,
-      delay: 0.5,
-      text: `في منصتنا نعيد للشعر مكانته كفن حيّ يُعاش ويُقتنى، عبر ربط الشعراء بالمهتمين بفن الكلمة والقصيدة. نوفر مساحة متكاملة تمكّن الشاعر من عرض إبداعاته الشعرية بأسلوب يليق بقيمتها الفنية، وتمنح محبي الشعر فرصة الحصول على قصائد فريدة كُتبت خصيصًا لهم، تعبّر عن أفكارهم ومشاعرهم ومناسباتهم الخاصة.
-
-نؤمن بأن الشعر ليس مجرد كلمات تُكتب، بل فن يُجسّد الإحساس ويصوغ المعنى، تمامًا كما يفعل الرسام حين يحوّل الفكرة إلى لوحة نابضة بالحياة. فالقصيدة لوحة فنية يرسمها الشاعر بالحروف، يختار ألوانها من العاطفة، وتفاصيلها من الخيال، ليقدّم عملًا إبداعيًا يحمل بصمته الخاصة.
-
-ويُعد الشعر أحد أبرز الفنون الأصيلة في الخليج العربي، وجزءًا متجذرًا من هويتنا الثقافية. ومن هنا جاءت منصتنا لتكون جسرًا يربط هذا الإرث العريق بالعصر الحديث، ويمنح الشعراء فرصة عادلة لتقديم فنهم، ويتيح للمهتمين بالشعر اقتناء أعمال شعرية مميزة، تحمل قيمة فنية ومعنوية حقيقية.
-
-سواء كنت شاعرًا تبحث عن منصة تبرز موهبتك، أو محبًا للشعر ترغب في قصيدة تُكتب لك وحدك، فإن منصتنا هي المساحة التي يلتقي فيها الإبداع بالذائقة، والكلمة بصاحبها.`,
-      ease: "power2.out",
+    // Testimonials carousel
+    const testimonialsSwiper = new Swiper(".testimonials-swiper", {
+      slidesPerView: 1,
+      spaceBetween: 24,
+      breakpoints: {
+        768: { slidesPerView: 2 },
+        1100: { slidesPerView: 3 },
+      },
     });
 
-    // Register ScrollTrigger
-    gsap.registerPlugin(ScrollTrigger);
+    const progressBar = document.querySelector(".swiper-progress span");
+    const prevBtn = document.querySelector(".swiper-prev");
+    const nextBtn = document.querySelector(".swiper-next");
 
-    // Select all sections you want to animate
-    gsap.utils.toArray(".section").forEach((section) => {
-      gsap.from(section, {
-        opacity: 0, // Start with opacity 0
-        y: 70, // Slide up slightly
-        duration: 2, // Duration of the animation
-        scrollTrigger: {
-          trigger: section, // Each section will trigger the animation
-          start: "top 80%", // When to start animation
-          end: "top 60%", // When to end animation (optional)
-          toggleActions: "play none none none", // Play animation on scroll down
-        },
+    function updateControls() {
+      const visible = Math.ceil(testimonialsSwiper.params.slidesPerView);
+      const totalSteps = Math.max(testimonialsSwiper.slides.length - visible + 1, 1);
+      const progress = totalSteps <= 1 ? 1 : (testimonialsSwiper.activeIndex + 1) / totalSteps;
+      if (progressBar) progressBar.style.width = Math.min(progress * 100, 100) + "%";
+      prevBtn.disabled = testimonialsSwiper.isBeginning;
+      nextBtn.disabled = testimonialsSwiper.isEnd;
+    }
+    testimonialsSwiper.on("slideChange", updateControls);
+    testimonialsSwiper.on("resize", updateControls);
+    updateControls();
+
+    nextBtn.addEventListener("click", () => testimonialsSwiper.slideNext());
+    prevBtn.addEventListener("click", () => testimonialsSwiper.slidePrev());
+
+    // FAQ accordion — one open at a time
+    document.querySelectorAll(".faq-item").forEach((item) => {
+      item.addEventListener("toggle", () => {
+        if (item.open) {
+          document.querySelectorAll(".faq-item").forEach((other) => {
+            if (other !== item) other.open = false;
+          });
+        }
       });
     });
 
     const platform_name_ar = "قافية";
     const platform_name_en = "Qafia";
 
-    document.querySelector(
-      "head"
-    ).innerHTML += `<title>منصة ${platform_name_ar}</title>
+    document.querySelector("head").innerHTML += `<title>منصة ${platform_name_ar}</title>
   <meta property="og:title" content="Home | ${platform_name_en}" />
   <meta property="og:site_name" content="${platform_name_en}_Platfrom" />
   <meta property="og:type" content="website" />

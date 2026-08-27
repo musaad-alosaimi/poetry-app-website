@@ -389,11 +389,11 @@
             <p>انضم إلى مجتمع يقدّر الكلمة ويمنح الشعر مكانه الذي يليق به.</p>
 
             <div class="store-buttons">
-              <a href="#" class="store-btn">
+              <a href="https://apps.apple.com/us/app/%D9%82%D8%A7%D9%81%D9%8A%D8%A9-%D8%AE%D8%AF%D9%85%D8%A7%D8%AA-%D8%B4%D8%B9%D8%B1%D9%8A%D8%A9-%D9%88-%D8%AB%D9%82%D8%A7%D9%81%D9%8A%D8%A9/id6741716347" class="store-btn" target="_blank" rel="noopener">
                 <svg width="22" height="22" viewBox="0 0 22 22" fill="#fff"><path d="M15.4 11.8c0-2.1 1.7-3.1 1.8-3.2-1-1.4-2.5-1.6-3-1.6-1.3-.1-2.5.8-3.1.8-.6 0-1.6-.7-2.7-.7-1.4 0-2.7.8-3.4 2-1.4 2.5-.4 6.3 1 8.3.7 1 1.5 2.1 2.6 2 1-.1 1.4-.7 2.7-.7s1.6.7 2.7.6c1.1 0 1.8-1 2.5-2 .8-1.1 1.1-2.2 1.1-2.3-.1 0-2.2-.8-2.2-3.2zM13.4 5.4c.6-.7 1-1.7.9-2.6-.9 0-1.9.6-2.5 1.3-.5.6-1 1.6-.9 2.5.9.1 1.9-.5 2.5-1.2z"/></svg>
                 <span><small>تنزيل من</small>App Store</span>
               </a>
-              <a href="#" class="store-btn">
+              <a href="https://play.google.com/store/apps/details?id=com.poetryplatform.qafia&hl=ar" class="store-btn" target="_blank" rel="noopener">
                 <svg width="22" height="22" viewBox="0 0 22 22" fill="#fff"><path d="M4 3l10 8-10 8V3z" fill="#fff"/><path d="M4 3l13 3.5-3 4.5-10-8z" opacity=".85"/><path d="M4 19l13-3.5-3-4.5-10 8z" opacity=".85"/></svg>
                 <span><small>احصل عليه من</small>Google Play</span>
               </a>
@@ -545,7 +545,6 @@
 
           <div id="center-footer">
             <p>جميع الحقوق محفوظة لمنصة قافية 2026 ©</p>
-            <p>@قافية 2026</p>
           </div>
         </div>
       </footer>
@@ -584,24 +583,227 @@
       }
     });
 
-    // Smooth reveal animation for sections
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: "0px 0px -100px 0px",
-    };
+    // ===== Precise in-page navigation =====
+    // Native anchor jumps land the target at the very top of the viewport,
+    // hidden behind the sticky header — and the parallax transforms below
+    // shift each section visually, so a fixed offset still isn't exact.
+    // This handler animates the scroll itself, then settles by re-measuring
+    // the target's on-screen rect (which includes the transform) until its
+    // top sits just under the header.
+    (function preciseAnchorScroll() {
+      const nav = document.getElementById("main-nav");
+      const gap = 16; // breathing room between header and target
+      const headerOffset = () =>
+        (nav ? nav.getBoundingClientRect().height : 0) + gap;
 
-    const observer = new IntersectionObserver(function (entries) {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("revealed");
-          observer.unobserve(entry.target);
+      const easeOutCubic = (t) => 1 - Math.pow(1 - t, 3);
+
+      function settle(target, iterations) {
+        const delta = target.getBoundingClientRect().top - headerOffset();
+        if (Math.abs(delta) > 1 && iterations < 30) {
+          window.scrollBy({ top: delta, left: 0, behavior: "auto" });
+          requestAnimationFrame(() => settle(target, iterations + 1));
         }
-      });
-    }, observerOptions);
+      }
 
-    document.querySelectorAll(".section").forEach((section) => {
-      observer.observe(section);
-    });
+      function scrollToTarget(target) {
+        const startY = window.pageYOffset;
+        const distance =
+          target.getBoundingClientRect().top - headerOffset();
+        const duration = Math.min(
+          700,
+          Math.max(300, Math.abs(distance) * 0.5)
+        );
+        const start = performance.now();
+
+        function frame(now) {
+          const p = Math.min((now - start) / duration, 1);
+          window.scrollTo({
+            top: startY + distance * easeOutCubic(p),
+            left: 0,
+            behavior: "auto",
+          });
+          if (p < 1) {
+            requestAnimationFrame(frame);
+          } else {
+            settle(target, 0);
+          }
+        }
+        requestAnimationFrame(frame);
+      }
+
+      document.querySelectorAll('a[href^="#"]').forEach((link) => {
+        link.addEventListener("click", (event) => {
+          const hash = link.getAttribute("href");
+          if (!hash || hash.length < 2) return; // bare "#"
+          const target = document.getElementById(hash.slice(1));
+          if (!target) return;
+          event.preventDefault();
+          if (history.pushState) history.pushState(null, "", hash);
+          scrollToTarget(target);
+        });
+      });
+    })();
+
+    // ===== 3D scroll motion =====
+    // The hero "docks" as you leave it, then every section flies in from deep
+    // Z-space — tilting, twisting and sharpening as it reaches the centre of
+    // the viewport, and receding again as it exits. Cards inside each section
+    // cascade out of depth on a stagger. Inspired by spaceship.com.
+    (function scroll3D() {
+      const reduceMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+      ).matches;
+      if (reduceMotion) return;
+
+      const root = document.documentElement;
+      root.classList.add("scroll3d-ready");
+
+      const clamp = (v, lo, hi) => Math.min(hi, Math.max(lo, v));
+      const easeOut = (t) => 1 - Math.pow(1 - t, 3);
+      const easeInOut = (t) =>
+        t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+
+      // Dial the whole effect back on small / touch screens.
+      let strength = 1;
+      const setStrength = () => {
+        strength = window.innerWidth < 700 ? 0.45 : window.innerWidth < 1024 ? 0.7 : 1;
+      };
+      setStrength();
+
+      /* ---------- hero ---------- */
+      const hero = document.getElementById("hero");
+      const heroContent = hero && hero.querySelector(".hero-content");
+      const heroMockup = hero && hero.querySelector(".hero-mockup");
+      const heroTiles = hero && hero.querySelector(".hero-tiles");
+      const heroGlows = hero ? Array.from(hero.querySelectorAll(".hero-glow")) : [];
+
+      function renderHero(scrollY) {
+        if (!hero) return;
+        const h = hero.offsetHeight || 1;
+        const hp = clamp(scrollY / (h * 0.85), 0, 1); // 0 at top → 1 when hero left
+        const e = easeInOut(hp);
+        const s = strength;
+
+        if (heroContent) {
+          heroContent.style.transform =
+            "translate3d(0," + (-e * 140 * s).toFixed(1) + "px,0) scale(" +
+            (1 - e * 0.06 * s).toFixed(4) + ")";
+          heroContent.style.opacity = (1 - hp * 1.25).toFixed(3);
+        }
+        if (heroMockup) {
+          heroMockup.style.transform =
+            "perspective(1400px) rotateX(" + (e * 34 * s).toFixed(2) +
+            "deg) translate3d(0," + (-e * 24 * s).toFixed(1) + "px,0) scale(" +
+            (1 - e * 0.12 * s).toFixed(4) + ")";
+          heroMockup.style.opacity = (1 - hp * 0.55).toFixed(3);
+        }
+        if (heroTiles)
+          heroTiles.style.transform =
+            "translate3d(0," + (e * 50 * s).toFixed(1) + "px,0) scale(" +
+            (1 + e * 0.15).toFixed(3) + ")";
+        heroGlows.forEach((g, i) => {
+          const rate = 40 + i * 45;
+          g.style.transform =
+            "translate3d(0," + (e * rate * s).toFixed(1) + "px,0)";
+        });
+      }
+
+      /* ---------- sections ---------- */
+      const panels = Array.from(
+        document.querySelectorAll(".section, #cta-section")
+      );
+      const childSelector = [
+        ".about-cards > .about-card",
+        ".standards-list > li",
+        ".fields-grid > .field-card",
+        ".partners-grid > .partner-card",
+        ".creators-grid > .creator-card",
+        ".journey-timeline > li",
+        ".vision-cards > .vision-card",
+        ".faq-grid > .faq-item",
+      ].join(",");
+
+      const groups = panels.map((panel, idx) => {
+        const kids = Array.from(panel.querySelectorAll(childSelector));
+        kids.forEach((k) => k.classList.add("scroll3d-child"));
+        return { panel, kids, dir: idx % 2 === 0 ? -1 : 1 };
+      });
+
+      function renderPanel(g, vh) {
+        const { panel, kids, dir } = g;
+        const rect = panel.getBoundingClientRect();
+        const center = rect.top + rect.height / 2;
+        const span = vh / 2 + rect.height / 2;
+        // p: +1 → panel still far below, 0 → centred, -1 → gone far above
+        const p = clamp((center - vh / 2) / span, -1, 1);
+        const below = p > 0;
+        const dist = Math.abs(p);
+        const k = easeOut(dist) * strength;
+
+        // incoming from deep Z, outgoing recedes upward — asymmetric
+        const tiltX = (below ? p * 24 : p * 13) * strength;
+        const tiltY = dir * (below ? p * 11 : p * 6) * strength;
+        const tz = (below ? -p * 280 : p * 190) * strength;
+        const ty = (below ? p * 60 : p * 90) * strength;
+        const scale = 1 - k * 0.2;
+        const blur = Math.min(dist * dist * 10 * strength, 9);
+        const opacity = 1 - k * 0.9;
+
+        panel.style.transform =
+          "perspective(1000px) translate3d(0," + ty.toFixed(1) + "px," +
+          tz.toFixed(1) + "px) rotateX(" + tiltX.toFixed(2) + "deg) rotateY(" +
+          tiltY.toFixed(2) + "deg) scale(" + scale.toFixed(4) + ")";
+        panel.style.opacity = opacity.toFixed(3);
+        panel.style.filter = blur > 0.4 ? "blur(" + blur.toFixed(2) + "px)" : "";
+
+        if (!kids.length) return;
+        // base: 0 while the panel is still arriving, 1 once it's near centre
+        const base = below
+          ? clamp(1 - p / 0.8, 0, 1)
+          : clamp(1 + p / 0.55, 0, 1);
+        const n = kids.length;
+        for (let i = 0; i < n; i++) {
+          const cd = kids[i].__d || (kids[i].__d = i % 2 === 0 ? -1 : 1);
+          const local = easeOut(clamp((base - (i / n) * 0.5) / 0.55, 0, 1));
+          const inv = (1 - local) * strength;
+          kids[i].style.transform =
+            "translate3d(" + (cd * inv * 46).toFixed(1) + "px," +
+            (inv * 64).toFixed(1) + "px," + (inv * -260).toFixed(1) +
+            "px) rotateX(" + (inv * -46).toFixed(1) + "deg) rotateZ(" +
+            (cd * inv * 5).toFixed(2) + "deg)";
+          kids[i].style.opacity = local.toFixed(3);
+        }
+      }
+
+      let ticking = false;
+      function render() {
+        ticking = false;
+        const vh = window.innerHeight || root.clientHeight;
+        const scrollY = window.pageYOffset || root.scrollTop;
+        renderHero(scrollY);
+        for (const g of groups) renderPanel(g, vh);
+      }
+
+      function onScroll() {
+        if (!ticking) {
+          ticking = true;
+          requestAnimationFrame(render);
+        }
+      }
+
+      window.addEventListener("scroll", onScroll, { passive: true });
+      window.addEventListener(
+        "resize",
+        () => {
+          setStrength();
+          onScroll();
+        },
+        { passive: true }
+      );
+      window.addEventListener("load", render);
+      render();
+    })();
 
     // Testimonials carousel
     const testimonialsSwiper = new Swiper(".testimonials-swiper", {

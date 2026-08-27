@@ -15,7 +15,14 @@
 
 * {
   box-sizing: border-box;
-  scroll-behavior: smooth;
+}
+
+html {
+  /* In-page navigation is handled by a JS smooth-scroll that measures the
+     sticky header and corrects for the parallax transforms, so keep the
+     native scrolling instant. scroll-padding-top is a no-JS fallback. */
+  scroll-behavior: auto;
+  scroll-padding-top: 90px;
 }
 
 body {
@@ -60,24 +67,54 @@ p {
   margin: 0;
 }
 
-.section {
-  opacity: 0;
-  transform: translateY(40px);
+/* ===== 3D scroll motion ===== */
+.section,
+#cta-section {
+  transform-origin: 50% 50%;
+  backface-visibility: hidden;
   transition: none;
 }
 
-.section.revealed {
-  animation: fadeInUp 0.8s ease-out forwards;
+/* Give each panel its own depth chamber so child cards travel in real Z */
+.scroll3d-ready .section,
+.scroll3d-ready #cta-section {
+  perspective: 1200px;
+  transform-style: preserve-3d;
+  will-change: transform, opacity, filter;
 }
 
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+.scroll3d-ready .scroll3d-child {
+  will-change: transform, opacity;
+}
+
+.scroll3d-child {
+  transform-origin: 50% 50%;
+  backface-visibility: hidden;
+}
+
+/* Hero depth layers */
+.scroll3d-ready #hero .hero-mockup,
+.scroll3d-ready #hero .hero-content,
+.scroll3d-ready #hero .hero-glow,
+.scroll3d-ready #hero .hero-tiles {
+  will-change: transform, opacity;
+}
+.scroll3d-ready #hero .hero-mockup {
+  transform-origin: 50% 100%;
+  perspective: 1400px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .section,
+  #cta-section,
+  .scroll3d-child,
+  #hero .hero-mockup,
+  #hero .hero-content,
+  #hero .hero-glow,
+  #hero .hero-tiles {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
   }
 }
 

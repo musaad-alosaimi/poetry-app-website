@@ -57,11 +57,21 @@ export function CtaBanner() {
   );
 }
 
-function StoreButton({ caption, name }: { caption: string; name: string }) {
+function StoreButton({
+  caption,
+  name,
+  href,
+}: {
+  caption: string;
+  name: string;
+  href: string;
+}) {
   const isApple = name === "App Store";
   return (
     <a
-      href="#"
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
       className={`flex h-[65px] flex-row-reverse items-center rounded-2xl border border-white/50 bg-white/15 px-8 text-white transition-colors hover:bg-white/25 ${isApple ? "gap-[10px]" : "gap-[13px]"}`}
     >
       {isApple ? (

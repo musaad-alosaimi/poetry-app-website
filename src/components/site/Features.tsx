@@ -15,29 +15,16 @@ export function Features() {
         <SectionHeading title={features.title} subtitle={features.subtitle} />
 
         <div className="mt-10 grid gap-6 lg:mt-14">
-          <div className="grid gap-6 md:grid-cols-2">
-            <FeatureCard {...features.people}>
-              <Art
-                src="/feat-poets.webp"
-                width={626}
-                height={538}
-                left="24.51%"
-                top="18.15%"
-                w="51.48%"
-              />
-            </FeatureCard>
-
-            <FeatureCard {...features.dashboard}>
-              <Art
-                src="/feat-dashboard.webp"
-                width={996}
-                height={298}
-                left="6.58%"
-                top="23.79%"
-                w="81.91%"
-              />
-            </FeatureCard>
-          </div>
+          <FeatureCard {...features.dashboard}>
+            <Art
+              src="/feat-dashboard.webp"
+              width={996}
+              height={298}
+              left="6.58%"
+              top="23.79%"
+              w="81.91%"
+            />
+          </FeatureCard>
 
           <div className="grid gap-6 md:grid-cols-[2fr_1fr]">
             <FeatureCard {...features.experience}>

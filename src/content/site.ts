@@ -48,10 +48,6 @@ export const features = {
     title: "لوحة تحكم",
     body: "تابع إحصائيات حسابك، راقب أداء خدماتك، واطلع على طلباتك وأرباحك في لوحة تحكم متكاملة تمنحك رؤية واضحة لنشاطك.",
   },
-  people: {
-    title: "اكتشف نخبة المجال",
-    body: "استعرض ملفات نخبة من الشعراء، اطلع على أعمالهم وتقييماتهم، واختر الشاعر الذي يجسد فكرتك ويحول مشاعرك إلى قصيدة مميزة.",
-  },
   orders: {
     title: "إدارة الطلبات بسهولة",
     body: "تابع الطلبات الجديدة، والطلبات الجارية، والمكتملة، مع إمكانية إدارة المحادثات ومتابعة التحديثات لحظة بلحظة.",
@@ -203,8 +199,16 @@ export const finalCta = {
   title: ["دع قصيدتك تجد صوتها", "المناسب"],
   body: "انضم إلى مجتمع يقدّر الكلمة ويمنح الشعر مكانه الذي يليق به.",
   stores: [
-    { caption: "احصل عليه من", name: "Google Play" },
-    { caption: "تنزيل من", name: "App Store" },
+    {
+      caption: "احصل عليه من",
+      name: "Google Play",
+      href: "https://play.google.com/store/apps/details?id=com.poetryplatform.qafia",
+    },
+    {
+      caption: "تنزيل من",
+      name: "App Store",
+      href: "https://apps.apple.com/us/app/%D9%82%D8%A7%D9%81%D9%8A%D8%A9-%D8%AE%D8%AF%D9%85%D8%A7%D8%AA-%D8%B4%D8%B9%D8%B1%D9%8A%D8%A9-%D9%88-%D8%AB%D9%82%D8%A7%D9%81%D9%8A%D8%A9/id6741716347",
+    },
   ],
 };
 
@@ -221,7 +225,7 @@ export const footer = {
   ],
   contact: {
     title: "تواصل معنا",
-    email: "almarshadaziz@gmail.com",
+    email: "support@qafia.sa",
     phone: "+966 55 777 4098",
   },
   copyright: "جميع الحقوق محفوظة لمنصة قافية © 2026",

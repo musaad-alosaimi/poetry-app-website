@@ -1,0 +1,101 @@
+@import "tailwindcss";
+
+/* Design-measurement scratch dir. Turbopack's source scan panics on the locked
+   Chrome profile it holds. */
+@source not "../../.tmpshot";
+
+@theme {
+  /* Neutrals — warm sand/cream family pulled from the design */
+  --color-cream: #f0f0ed;
+  --color-sand: #ece2d3;
+  --color-sand-deep: #ded1bd;
+  --color-card: #fdfbf7;
+  --color-line: #e5dbcb;
+
+  /* Accent — taupe */
+  --color-taupe: #b9a184;
+  --color-taupe-deep: #937a5c;
+  --color-taupe-soft: #d6c4ab;
+
+  /* Ink — dark browns used for text and the dark sections */
+  --color-ink: #2b231d;
+  --color-ink-soft: #4a3f35;
+  --color-ink-deep: #1c1613;
+  --color-muted: #8b7c6e;
+
+  --font-arabic: var(--font-tajawal), system-ui, sans-serif;
+  --font-display: var(--font-kufam), var(--font-tajawal), system-ui, sans-serif;
+
+  --radius-card: 1.25rem;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-cream);
+    color: var(--color-ink);
+    font-family: var(--font-arabic);
+  }
+
+  /* The design pairs Arabic copy with Latin numerals throughout. */
+  :lang(ar) {
+    font-variant-numeric: lining-nums;
+  }
+}
+
+@layer utilities {
+  .bg-hero {
+    background-color: #cfc3b5;
+    background-image: url("/hero-bg.webp");
+    background-size: cover;
+    background-position: center;
+  }
+
+  /* مجالات عملنا sits on a warm taupe band that is darkest just behind the card
+     row. Approximated from the design PNG — the source artwork was never exported. */
+  .bg-fields {
+    background-color: #cdbeae;
+    background-image:
+      radial-gradient(
+        55% 45% at 27% 6%,
+        rgba(150, 120, 92, 0.3) 0%,
+        transparent 75%
+      ),
+      radial-gradient(
+        34% 40% at 56% 100%,
+        rgba(150, 120, 92, 0.32) 0%,
+        transparent 72%
+      ),
+      radial-gradient(
+        26% 55% at 100% 14%,
+        rgba(150, 120, 92, 0.22) 0%,
+        transparent 72%
+      ),
+      linear-gradient(180deg, #cfc1b1 0%, #cbbcac 40%, #d2c7b9 100%);
+  }
+
+  .no-scrollbar {
+    scrollbar-width: none;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .bg-sand-fade {
+    background-image: linear-gradient(
+      180deg,
+      var(--color-cream) 0%,
+      var(--color-sand) 100%
+    );
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}

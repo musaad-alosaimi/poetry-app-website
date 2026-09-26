@@ -14,7 +14,7 @@ export function Fields() {
       </Container>
 
       <div
-        className="no-scrollbar mt-10 flex snap-x snap-mandatory gap-8 overflow-x-auto scroll-smooth"
+        className="no-scrollbar mt-10 flex snap-x snap-mandatory gap-8 overflow-x-auto"
         style={{
           paddingInlineStart: EDGE,
           paddingInlineEnd: EDGE,

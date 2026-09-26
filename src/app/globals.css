@@ -30,10 +30,6 @@
 }
 
 @layer base {
-  html {
-    scroll-behavior: smooth;
-  }
-
   body {
     background-color: var(--color-cream);
     color: var(--color-ink);
@@ -91,11 +87,5 @@
       var(--color-cream) 0%,
       var(--color-sand) 100%
     );
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
   }
 }

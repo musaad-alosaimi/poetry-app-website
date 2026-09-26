@@ -37,12 +37,12 @@ export function Footer() {
               <h3 className="pt-[4.5px] text-[20px] leading-none font-medium">{col.title}</h3>
               <ul className="mt-[21.5px]">
                 {col.links.map((link) => (
-                  <li key={link}>
+                  <li key={link.label}>
                     <a
-                      href="#"
+                      href={link.href}
                       className="text-base leading-[23px] font-medium transition-opacity hover:opacity-70"
                     >
-                      {link}
+                      {link.label}
                     </a>
                   </li>
                 ))}

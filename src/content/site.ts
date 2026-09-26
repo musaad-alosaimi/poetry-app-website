@@ -216,11 +216,20 @@ export const footer = {
   columns: [
     {
       title: "روابط سريعة",
-      links: ["عن قافية", "كيف تعمل", "الشعراء"],
+      links: [
+        { label: "عن قافية", href: "#" },
+        { label: "كيف تعمل", href: "#" },
+        { label: "الشعراء", href: "#" },
+      ],
     },
     {
       title: "الشركة",
-      links: ["الأسئلة الشائعة", "تواصل معنا", "سياسة الخصوصية"],
+      links: [
+        { label: "الأسئلة الشائعة", href: "#" },
+        { label: "تواصل معنا", href: "#" },
+        { label: "سياسة الخصوصية", href: "/privacy-policy/" },
+        { label: "سياسة حذف الحساب", href: "/delete-account/" },
+      ],
     },
   ],
   contact: {
